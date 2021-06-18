@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>:: Meditation Attendance Project ::</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" integrity="undefined" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
+</head>
+
+<body>
+<div class="container">
+    <a th:href="@{/}" aria-label="MIU logo" class="logo">
+        <img src="../images/logo.png" title="LOGO" />
+    </a>
+    <form th:action="@{/login}" method="POST" class="form-signin">
+        <h2 class="form-heading">Log in</h2>
+        <div class="alert alert-danger" th:if="${loginError}">
+            <p>Username or Password invalid, Please verify!</p>
+        </div>
+        <div class="form-group">
+            <span></span>
+            <input type="text" class="form-control mb-2" name="username" th:placeholder="Username" autofocus="true" />
+            <input type="password" th:placeholder="Password" name="password" class="form-control" />
+            <span></span>
+            <button class="btn btn-outline-primary btn-block w-100" name="Submit" value="Login" type="Submit" th:text="Login"></button>
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+        </div>
+    </form>
+</div>
+</body>
+</html>
